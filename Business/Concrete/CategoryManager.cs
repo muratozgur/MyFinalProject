@@ -23,10 +23,6 @@ namespace Business.Concrete
 
         public IDataResult<List<Category>> GetAll()
         {
-            if (DateTime.Now.Hour == 22)
-            {
-                return new ErrorDataResult<List<Category>>(Messages.MaintananceTime);
-            }
             return new SuccessDataResult<List<Category>>(_categoryDal.GetAll(), Messages.CategoriesListed);
         }
         public IDataResult<Category> GetById(int categoryId) 
